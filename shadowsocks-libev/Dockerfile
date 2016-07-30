@@ -22,7 +22,7 @@ RUN set -ex \
     && rm -rf /var/cache/apk/*
 
 ENV SERVER_ADDR 0.0.0.0
-ENV SERVER_PORT 8388
+ENV SERVER_PORT 8391
 ENV PASSWORD=
 ENV METHOD      aes-128-cfb
 ENV TIMEOUT     300
