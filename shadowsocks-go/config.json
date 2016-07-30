@@ -1,0 +1,7 @@
+{
+	"port-password": {
+		"8388": "password"
+	},
+	"method": "aes-128-cfb",
+	"timeout": 600
+}
