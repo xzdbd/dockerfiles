@@ -15,8 +15,8 @@ ADD $SS_URL /opt/$SS_DIR/shadowsocks-server.gz
 
 WORKDIR /opt/$SS_DIR
 
-RUN gzip -d shadowsocks-server.gz && chmod +x ./shadowsocks-server
+RUN gzip -d /opt/$SS_DIR/shadowsocks-server.gz && chmod +x /opt/$SS_DIR/shadowsocks-server
 
 EXPOSE 8388
 
-CMD /opt/shadowsocks-server -c /opt/$SS_DIR/ss-config.json
+CMD /opt/$SS_DIR/shadowsocks-server -c /opt/$SS_DIR/ss-config.json
