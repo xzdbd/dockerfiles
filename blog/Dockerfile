@@ -7,7 +7,7 @@ RUN apt-get update \
 	&& apt-get install -y nodejs && apt-get install -y npm
 
 RUN set -ex \
-		&& go-get install -y git-all \
+		&& apt-get install -y git-all \
 		&& go get -u github.com/astaxie/beego \
 		&& go get -u github.com/xzdbd/blog \
 		&& cd /go/src/github.com/xzdbd/blog/views/octopress \
