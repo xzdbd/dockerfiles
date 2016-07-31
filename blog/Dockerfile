@@ -7,8 +7,7 @@ RUN apt-get update \
 	&& apt-get install -y nodejs && apt-get install -y npm
 
 RUN set -ex \
-		apk update && apk upgrade && \
-    	apk add --no-cache bash git openssh \
+		&& go-get install -y git-all \
 		&& go get -u github.com/astaxie/beego \
 		&& go get -u github.com/xzdbd/blog \
 		&& cd /go/src/github.com/xzdbd/blog/views/octopress \
