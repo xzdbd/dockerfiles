@@ -6,10 +6,11 @@ RUN set -ex \
 		apk update && apk upgrade && \
     	apk add --no-cache bash git openssh \
 		&& go get -u github.com/astaxie/beego \
-		&& go get -u github.com/xzdbd/weixingis
+		&& go get -u github.com/xzdbd/weixingis \
+		&& cp -rf /go/src/github.com/xzdbd/weixingis/conf /go/bin/
 
 EXPOSE 8092
 
-WORKDIR $GOPATH/bin
+WORKDIR /go/bin
 
-CMD $GOPATH/bin/weixingis
+CMD /go/bin/weixingis
