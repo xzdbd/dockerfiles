@@ -2,8 +2,9 @@ FROM golang:1.6.3
 
 MAINTAINER xzdbd <xzdbd@sina.com>
 
-RUN curl -sSL https://get.rvm.io | bash -s stable --quiet-curl --ruby=1.9.3 \
-	&& apt-get update && apt-get install nodejs && apt-get install npm
+RUN apt-get update \
+	&& apt-get install ruby-full \
+	&& apt-get install nodejs && apt-get install npm
 
 RUN set -ex \
 		apk update && apk upgrade && \
