@@ -2,7 +2,7 @@ FROM golang:1.6.3
 
 MAINTAINER xzdbd <xzdbd@sina.com>
 
-RUN curl -sSL https://get.rvm.io | bash -s 1.9.3 --ruby \
+RUN curl -sSL https://get.rvm.io | bash -s stable --ruby \
 	&& apt-get update && apt-get install nodejs && apt-get install npm
 
 RUN set -ex \
