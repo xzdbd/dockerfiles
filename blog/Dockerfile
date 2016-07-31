@@ -3,8 +3,8 @@ FROM golang:1.6.3
 MAINTAINER xzdbd <xzdbd@sina.com>
 
 RUN apt-get update \
-	&& apt-get install ruby-full \
-	&& apt-get install nodejs && apt-get install npm
+	&& apt-get install -y ruby-full \
+	&& apt-get install -y nodejs && apt-get install -y npm
 
 RUN set -ex \
 		apk update && apk upgrade && \
