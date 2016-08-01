@@ -39,6 +39,6 @@ RUN chmod a+x /etc/init.d/nginx && \
 	rm -rf /openssl.zip && \
 	rm -rf /sslconfig
 
-CMD ["/bin/bash"]
+CMD /usr/local/nginx/sbin/nginx -g 'daemon off;'
 
 	
