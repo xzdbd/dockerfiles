@@ -26,12 +26,7 @@ RUN wget -c https://nginx.org/download/nginx-1.11.2.tar.gz && \
 	make && \
 	make install
 
-# add nginx service
-COPY ./nginx /etc/init.d/
-
-RUN chmod a+x /etc/init.d/nginx && \
-	update-rc.d -f nginx defaults && \
-	rm -rf /nginx-1.11.2 && \
+RUN rm -rf /nginx-1.11.2 && \
 	rm -rf /nginx-ct-1.2.0 && \
 	rm -rf /nginx-1.11.2.tar.gz && \
 	rm -rf /nginx-ct.zip && \

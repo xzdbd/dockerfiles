@@ -2,12 +2,18 @@ FROM xzdbd/nginx
 
 MAINTAINER xzdbd <xzdbd@sina.com>
 
-RUN set -ex \
-	&& wget -O -  https://get.acme.sh | sh
+ENV CF_Key	"apikey"
+ENV CF_Email "xzdbd@sina.com"
 
-COPY ./nginx.conf /root/nginx.conf
-COPY ./post_deploy_1.sh /root/post_deploy_1.sh
-COPY ./post_deploy_2.sh /root/post_deploy_2.sh
+RUN set -ex \
+	&& wget -O -  https://get.acme.sh | sh \	
+	&& /root/.acme.sh/acme.sh --issue --dns dns_cf -d xzdbd.com -d www.xzdbd.com \
+	&& cd /root/.acme.sh/xzdbd.com \
+	&& openssl dhparam -out dhparams.pem 2048 \
+	&& wget -O - https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem > intermediate.pem \
+	&& cat xzdbd.com.cer intermediate.pem > chained.pem
+
+COPY ./nginx.conf /usr/local/nginx/conf/nginx.conf
 
 EXPOSE 80
 
