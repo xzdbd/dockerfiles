@@ -2,8 +2,6 @@ FROM xzdbd/nginx
 
 MAINTAINER xzdbd <xzdbd@sina.com>
 
-ENV
-
 RUN set -ex \
 	&& wget -O -  https://get.acme.sh | sh \
 
