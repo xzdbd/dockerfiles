@@ -4,7 +4,7 @@ MAINTAINER xzdbd <xzdbd@sina.com>
 
 # install dependency
 RUN apt-get update && \
-	apt-get install -y build-essential libpcre3 libpcre3-dev zlib1g-dev unzip git
+	apt-get install -y build-essential libpcre3 libpcre3-dev zlib1g-dev unzip git wget
 # get OpenSSL, Cloudflare Patch and nginx-ct
 RUN mkdir downloads && \
 	git clone https://github.com/cloudflare/sslconfig && \
