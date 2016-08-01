@@ -8,8 +8,7 @@ RUN set -ex &&\
 	apt-get install -y build-essential libpcre3 libpcre3-dev zlib1g-dev unzip git wget
 
 # get OpenSSL, Cloudflare Patch and nginx-ct
-RUN mkdir /root/downloads && cd /root/downloads && \
-	git clone https://github.com/cloudflare/sslconfig && \
+RUN git clone https://github.com/cloudflare/sslconfig && \
 	wget -O openssl.zip -c https://github.com/openssl/openssl/archive/OpenSSL_1_0_2h.zip && \
 	unzip openssl.zip && \
 	mv openssl-OpenSSL_1_0_2h/ openssl && \
@@ -32,7 +31,12 @@ COPY ./nginx /etc/init.d/
 
 RUN chmod a+x /etc/init.d/nginx && \
 	update-rc.d -f nginx defaults && \
-	rm -rf /root/downloads
+	rm -rf /nginx-1.11.2 && \
+	rm -rf /nginx-ct.1.2.0 && \
+	rm -rf /nginx-1.11.2.tar.gz && \
+	rm -rf /nginx-ct.zip && \
+	rm -rf /openssl && \
+	rm -rf /openssl.zip
 
 CMD ["/bin/bash"]
 

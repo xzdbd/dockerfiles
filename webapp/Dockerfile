@@ -3,4 +3,13 @@ FROM xzdbd/nginx
 MAINTAINER xzdbd <xzdbd@sina.com>
 
 RUN set -ex \
-	&& curl https://get.acme.sh | sh
+	&& wget -O -  https://get.acme.sh | sh \
+	&& /root/.acme.sh/acme.sh --renew -d xzdbd.com
+
+COPY ./nginx.conf /usr/local/nginx/conf/nginx.conf
+
+RUN service nginx reload \
+	&& service nginx start
+
+CMD ["/bin/bash"]	
+	 
