@@ -11,5 +11,7 @@ COPY ./nginx.conf /usr/local/nginx/conf/nginx.conf
 RUN service nginx reload \
 	&& service nginx start
 
+EXPOSE 80
+
 CMD ["/bin/bash"]	
 	 
