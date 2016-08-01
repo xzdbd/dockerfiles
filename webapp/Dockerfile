@@ -2,11 +2,10 @@ FROM xzdbd/nginx
 
 MAINTAINER xzdbd <xzdbd@sina.com>
 
-ENV CF_Key	"5634c4e7a9a08a12ad49db9e6758a69d3386b"
-ENV CF_Email "xzdbd@sina.com"
-
 RUN set -ex \
-	&& wget -O -  https://get.acme.sh | sh \	
+	&& wget -O -  https://get.acme.sh | sh \
+	&& export CF_Key="5634c4e7a9a08a12ad49db9e6758a69d3386b" \
+	&& export CF_Email="xzdbd@sina.com" \
 	&& /root/.acme.sh/acme.sh --issue --dns dns_cf -d xzdbd.com -d www.xzdbd.com \
 	&& cd /root/.acme.sh/xzdbd.com \
 	&& openssl dhparam -out dhparams.pem 2048 \
