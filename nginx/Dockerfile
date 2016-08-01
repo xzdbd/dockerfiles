@@ -36,7 +36,8 @@ RUN chmod a+x /etc/init.d/nginx && \
 	rm -rf /nginx-1.11.2.tar.gz && \
 	rm -rf /nginx-ct.zip && \
 	rm -rf /openssl && \
-	rm -rf /openssl.zip
+	rm -rf /openssl.zip && \
+	rm -rf /sslconfig
 
 CMD ["/bin/bash"]
 

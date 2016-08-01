@@ -2,14 +2,14 @@ FROM xzdbd/nginx
 
 MAINTAINER xzdbd <xzdbd@sina.com>
 
+ENV
+
 RUN set -ex \
 	&& wget -O -  https://get.acme.sh | sh \
-	&& /root/.acme.sh/acme.sh --renew -d xzdbd.com
 
 COPY ./nginx.conf /usr/local/nginx/conf/nginx.conf
-
-RUN service nginx reload \
-	&& service nginx start
+COPY ./post_deploy_1.sh /usr/local/nginx/conf/post_deploy_1.sh
+COPY ./post_deploy_2.sh /usr/local/nginx/conf/post_deploy_2.sh
 
 EXPOSE 80
 
