@@ -11,5 +11,5 @@ COPY ./post_deploy_2.sh /root/post_deploy_2.sh
 
 EXPOSE 80
 
-CMD nginx -g 'daemon off;'
+CMD /usr/local/nginx/sbin/nginx -g 'daemon off;'
 	 
