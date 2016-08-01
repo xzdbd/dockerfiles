@@ -2,7 +2,7 @@ FROM xzdbd/nginx
 
 MAINTAINER xzdbd <xzdbd@sina.com>
 
-ENV CF_Key	"apikey"
+ENV CF_Key	"5634c4e7a9a08a12ad49db9e6758a69d3386b"
 ENV CF_Email "xzdbd@sina.com"
 
 RUN set -ex \
