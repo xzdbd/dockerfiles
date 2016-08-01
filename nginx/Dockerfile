@@ -32,7 +32,7 @@ COPY ./nginx /etc/init.d/
 RUN chmod a+x /etc/init.d/nginx && \
 	update-rc.d -f nginx defaults && \
 	rm -rf /nginx-1.11.2 && \
-	rm -rf /nginx-ct.1.2.0 && \
+	rm -rf /nginx-ct-1.2.0 && \
 	rm -rf /nginx-1.11.2.tar.gz && \
 	rm -rf /nginx-ct.zip && \
 	rm -rf /openssl && \
