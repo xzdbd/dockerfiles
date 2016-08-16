@@ -2,7 +2,7 @@
 # Dockerfile for serverspeeder
 #
 
-FROM utuntu:trusty
+FROM ubuntu:trusty
 MAINTAINER xzdbd <xzdbd@sina.com>
 
 RUN set -ex &&\
