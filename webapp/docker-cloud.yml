@@ -1,0 +1,21 @@
+blog:
+  expose:
+    - '8096'
+  image: 'xzdbd/blog:latest'
+  restart: always
+webapp:
+  image: 'xzdbd/webapp:latest'
+  links:
+    - blog
+    - weixingis
+  ports:
+    - '80:80'
+    - '443:443'
+  restart: always
+  volumes:
+    - '/root/.acme.sh:/root/.acme.sh'
+weixingis:
+  expose:
+    - '8092'
+  image: 'xzdbd/weixingis:latest'
+  restart: always
