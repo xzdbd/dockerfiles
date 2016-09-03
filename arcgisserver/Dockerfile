@@ -4,18 +4,18 @@ MAINTAINER xzdbd <xzdbd@sina.com>
 
 COPY ./* /tmp/
 
-RUN yum install -y net tools && \
-    yum install -y net fontconfig && \
-    yum install -y net freetype && \
-    yum install -y net gettext && \
-    yum install -y net libXfont && \
-    yum install -y net mesa-libGL && \
-    yum install -y net mesa-libGLU && \
-    yum install -y net Xvfb
+RUN yum install -y net-tools && \
+    yum install -y fontconfig && \
+    yum install -y freetype && \
+    yum install -y gettext && \
+    yum install -y libXfont && \
+    yum install -y mesa-libGL && \
+    yum install -y mesa-libGLU && \
+    yum install -y Xvfb
 
 ADD . /src
 
-RUN /usr/sbin/useradd --create-home /usr/local/arcgis --shell /bin/bash arcgis
+RUN /usr/sbin/useradd --create-home --home-dir /usr/local/arcgis --shell /bin/bash arcgis
 
 RUN chown -R arcgis /src
 
