@@ -40,4 +40,7 @@ Then start the ArcGIS server in the container.
 
 ArcGIS Server Manager is available now. Navigate to [http://localhost:6080/arcgis/manager](http://localhost:6080/arcgis/manager) in the host browser.
 
-
+## TO-DO
+- [ ] To run in detached mode (-d)
+- [ ] Data volume
+- [ ] ArcGIS for Server 10.3 image 
