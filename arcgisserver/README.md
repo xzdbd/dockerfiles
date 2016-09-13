@@ -4,7 +4,7 @@
 
 ### Build the Docker Image
 
-* Put the ArcGIS for Server installer in the same folder with the Dockerfile
+* Put the ArcGIS for Server installer in the same folder with the Dockerfile.
 
 ```bash
 $ ls
@@ -22,10 +22,15 @@ docker build -t xzdbd/arcgisserver:10.3.1 .
 Start the process in the container and attach the console to the process’s standard input, output, and standard error. (Temporary way)
 
 ```bash
-docker run --name arcgisserver --rm -it --hostname arcgis -p 6080:6080 -p 6443:6443 xzdbd/arcgisserver:10.3.1 /bin/bash
+docker run --name arcgisserver \
+	   --rm -it --hostname arcgis \
+	   -p 6080:6080 \
+	   -p 6443:6443 \
+	   xzdbd/arcgisserver:10.3.1 \
+	   /bin/bash
 ```
 
-Then
+Then start the ArcGIS server in the container.
 
 ```bash
 /acgis/server/startserver.sh
