@@ -4,7 +4,7 @@
 
 ### Build the Docker Image
 
-* Put the ArcGIS for Server installer in the same folder with the Dockerfile.
+* Put the ArcGIS for Server installer in the same folder with the [Dockerfile](https://github.com/xzdbd/dockerfiles/blob/master/arcgisserver/10.3.1/Dockerfile).
 
 ```bash
 $ ls
