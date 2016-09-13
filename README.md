@@ -11,4 +11,5 @@
 | 5 | [shadowsocks-go](https://github.com/xzdbd/dockerfiles/tree/master/shadowsocks-go) | latest | Shadowsocks-go is a lightweight tunnel proxy |
 | 6 | [shadowsocks-libev](https://github.com/xzdbd/dockerfiles/tree/master/shadowsocks-libev) | latest, 2.4.6 | Shadowsocks-libev is a lightweight tunnel proxy |
 | 7 | [webapp](https://github.com/xzdbd/dockerfiles/tree/master/webapp) | latest | nginx with weixingis and blog, deployed in docker-cloud |
-| 8 | [weixingis](https://github.com/xzdbd/dockerfiles/tree/master/weixingis) | latest | wechat: weixingis |
+| 8 | [weixingis](https://github.com/xzdbd/dockerfiles/tree/master/weixingis) | latest | wechat:weixingis |
+| 9 | [arcgisserver](https://github.com/xzdbd/dockerfiles/tree/master/arcgisserver) | 10.3.1 | xzdbd:arcgisserver:10.3.1 |
