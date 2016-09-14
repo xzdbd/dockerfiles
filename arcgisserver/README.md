@@ -1,4 +1,4 @@
-# ArcGIS for Sever on Docker
+# ArcGIS for Server on Docker
 
 ## 10.3.1
 
