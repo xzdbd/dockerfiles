@@ -25,6 +25,4 @@ RUN tar xvzf /tmp/ArcGIS_for_Server_Linux_1031_145870.tar.gz -C /tmp/ && \
 RUN rm /tmp/ArcGIS_for_Server_Linux_1031_145870.tar.gz && \
     rm -rf rf /tmp/ArcGISServer
 
-RUN /arcgis/server/startserver.sh
-
-ENTRYPOINT /bin/bash
+CMD /arcgis/server/startserver.sh && tail -f /arcgis/server/framework/etc/service_error.log

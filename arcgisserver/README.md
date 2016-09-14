@@ -19,28 +19,20 @@ docker build -t xzdbd/arcgisserver:10.3.1 .
 
 ### Run a container 
 
-Start the process in the container and attach the console to the process’s standard input, output, and standard error. (Temporary way)
+To run in detached mode (-d).
 
 ```bash
 docker run --name arcgisserver \
-	   --rm -it --hostname arcgis \
-	   -p 6080:6080 \
-	   -p 6443:6443 \
-	   xzdbd/arcgisserver:10.3.1 \
-	   /bin/bash
+	-d --hostname arcgis \
+	-p 6080:6080 \
+	-p 6443:6443 \
+	xzdbd/arcgisserver:10.3.1
 ```
-
-Then start the ArcGIS server in the container.
-
-```bash
-/acgis/server/startserver.sh
-```
-
 ### Access ArcGIS Server Manager
 
 ArcGIS Server Manager is available now. Navigate to [http://localhost:6080/arcgis/manager](http://localhost:6080/arcgis/manager) in the host browser.
 
 ## TO-DO
-- [ ] To run in detached mode (-d)
+- [X] To run in detached mode (-d)
 - [ ] Data volume
 - [ ] ArcGIS for Server 10.3 image 
