@@ -13,3 +13,4 @@
 | 7 | [webapp](https://github.com/xzdbd/dockerfiles/tree/master/webapp) | latest | nginx with weixingis and blog, deployed in docker-cloud |
 | 8 | [weixingis](https://github.com/xzdbd/dockerfiles/tree/master/weixingis) | latest | wechat:weixingis |
 | 9 | [arcgisserver](https://github.com/xzdbd/dockerfiles/tree/master/arcgisserver) | 10.3.1 | xzdbd/arcgisserver:10.3.1 |
+| 10 | [postgres](https://github.com/xzdbd/dockerfiles/tree/master/postgres/9.3-sde)| 10.3-sde | geodatabase |
