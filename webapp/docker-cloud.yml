@@ -8,6 +8,7 @@ webapp:
   links:
     - blog
     - weixingis
+    - box
   ports:
     - '80:80'
     - '443:443'
@@ -18,4 +19,9 @@ weixingis:
   expose:
     - '8092'
   image: 'xzdbd/weixingis:latest'
+  restart: always
+box:
+  image: 'xzdbd/box:latest'
+  ports:
+    - '8097'
   restart: always
