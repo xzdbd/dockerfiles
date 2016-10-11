@@ -3,6 +3,8 @@ blog:
     - '8096'
   image: 'xzdbd/blog:latest'
   restart: always
+  volumes:
+    - /home/lich/docker-runtime/blog/conf/:/go/bin/conf/
 webapp:
   image: 'xzdbd/webapp:latest'
   links:
@@ -25,3 +27,5 @@ box:
   ports:
     - '8097'
   restart: always
+  volumes:
+    - /home/lich/docker-runtime/box/conf/:/go/bin/conf/
