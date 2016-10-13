@@ -8,7 +8,8 @@ RUN set -ex \
 		&& go get -u github.com/xzdbd/box \
 		&& cp -rf /go/src/github.com/xzdbd/box/conf /go/bin/ \
 		&& cp -rf /go/src/github.com/xzdbd/box/static /go/bin/ \
-		&& cp -rf /go/src/github.com/xzdbd/box/views /go/bin/
+		&& cp -rf /go/src/github.com/xzdbd/box/views /go/bin/ \
+		&& mkdir -p /go/bin/logs
 
 EXPOSE 8097
 

@@ -16,6 +16,7 @@ RUN set -ex \
 RUN cp -rf /go/src/github.com/xzdbd/blog/conf /go/bin/ \
 	&& cp -rf /go/src/github.com/xzdbd/blog/static /go/bin/ \
 	&& mkdir -p /go/bin/views/octopress \
+	&& mkdir -p /go/bin/logs \
 	&& cp -rf /go/src/github.com/xzdbd/blog/views/octopress/public /go/bin/views/octopress \
 	&& cp -rf /go/src/github.com/xzdbd/blog/views/resume.tpl /go/bin/views/
 
