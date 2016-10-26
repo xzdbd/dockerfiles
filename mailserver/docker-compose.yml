@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  mail:
+    image: tvial/docker-mailserver:latest
+    # build: .
+    hostname: mail
+    domainname: xzdbd.com
+    container_name: mail
+    ports:
+      - "25:25"
+      - "143:143"
+      - "587:587"
+      - "993:993"
+    volumes:
+      - ./mail/:/var/mail/
+      - ./config/:/tmp/docker-mailserver/
+      - /etc/letsencrypt:/etc/letsencrypt
+    environment:
+      - SSL_TYPE=letsencrypt
