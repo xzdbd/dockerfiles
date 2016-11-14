@@ -1,0 +1,37 @@
+influxdb:
+    image: influxdb:latest
+    name: influxdb
+    ports:
+        - "8083:8083"
+        - "8086:8086"
+    expose: 
+        - "8096"
+    volumes:
+        - /home/lich/docker-runtime/influxdb/data:/var/lib/influxdb
+cadvisor:
+    image: google/cadvisor
+    name: cadvisor
+    command: 
+        -storage_driver=influxdb -storage_driver_db=cadvisor -storage_driver_host=influxdb:8086
+    ports:
+        - "8080:8080"
+    volumes:
+        - /:/rootfs:ro
+        - /var/run:/var/run:rw
+        - /sys:/sys:ro
+        - /var/lib/docker/:/var/lib/docker:ro
+    links:
+        - influxdb:influxdb
+grafana:
+  image: grafana/grafana
+  name: grafana
+  ports:
+    - "3000:3000"
+  links:
+    - influxdb:influxdb
+  environment:
+    - INFLUXDB_HOST=localhost
+    - INFLUXDB_PORT=8086
+    - INFLUXDB_NAME=cadvisor
+    - INFLUXDB_USER=root
+    - INFLUXDB_PASS=root
