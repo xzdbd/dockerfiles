@@ -1,0 +1,6 @@
+version: '2'
+services:
+  api:
+    build: .
+    volumes:
+      - /vagrant/gopath:/gopath
