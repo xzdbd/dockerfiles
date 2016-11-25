@@ -27,4 +27,4 @@ RUN go get -u github.com/astaxie/beego \
 
 EXPOSE 8098
 
-CMD bee run $GOPATH/bin/api
+CMD $GOPATH/bin/api
