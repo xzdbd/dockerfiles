@@ -22,6 +22,11 @@ weixingis:
     - '8092'
   image: 'xzdbd/weixingis:latest'
   restart: always
+api:
+  expose:
+    - '8098'
+  image: 'xzdbd/api:latest'
+  restart: always
 box:
   image: 'xzdbd/box:latest'
   ports:
