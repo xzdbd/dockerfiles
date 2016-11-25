@@ -4,8 +4,6 @@ ENV GOOGLER_GIT_URL https://github.com/jarun/googler/
 ENV GO_VERSION 1.7.3
 ENV GO_URL https://storage.googleapis.com/golang/go$GO_VERSION.linux-amd64.tar.gz
 
-VOLUME /gopath
-
 ADD $GO_URL /tmp/
 
 RUN git clone $GOOGLER_GIT_URL && \
@@ -19,10 +17,10 @@ RUN tar -C /usr/local -xzf /tmp/go$GO_VERSION.linux-amd64.tar.gz && \
     rm -f /tmp/go$GO_VERSION.linux-amd64.tar.gz
 
 ENV GOPATH /gopath
-ENV PATH $PATH:/usr/local/go/bin:$GOPATH/bin
 
 RUN go get -u github.com/astaxie/beego \
 	&& go get -u github.com/xzdbd/api \
+	&& cp -f $GOPATH/src/github.com/xzdbd/api/api $GOPATH/bin/ \
 	&& cp -rf $GOPATH/src/github.com/xzdbd/api/conf $GOPATH/bin/
 
 EXPOSE 8098
