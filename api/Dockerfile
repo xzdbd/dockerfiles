@@ -21,11 +21,8 @@ ENV GOPATH /gopath
 ENV PATH $PATH:/usr/local/go/bin:$GOPATH/bin
 
 RUN go get -u github.com/xzdbd/api &&\
-	cd $GOPATH/src/github.com/xzdbd/api &&\
-	go build &&\
-	cp -f $GOPATH/src/github.com/xzdbd/api/api $GOPATH/bin/api &&\
-	cp -rf $GOPATH/src/github.com/xzdbd/api/conf $GOPATH/bin/
-
+	go get -u github.com/beego/bee
+	
 EXPOSE 8098
 
-CMD $GOPATH/bin/api
+CMD bee run $GOPATH/src/github.com/xzdbd/api
