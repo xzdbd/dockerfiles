@@ -27,6 +27,8 @@ api:
     - '8098'
   image: 'xzdbd/api:latest'
   restart: always
+  volumes:
+    - /home/lich/docker-runtime/api/conf/:/gopath/src/github.com/xzdbd/api/conf/
 box:
   image: 'xzdbd/box:latest'
   ports:
