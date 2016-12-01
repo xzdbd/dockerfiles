@@ -22,6 +22,11 @@ weixingis:
     - '8092'
   image: 'xzdbd/weixingis:latest'
   restart: always
+ops-angel:
+  expose:
+    - '8099'
+  image: 'xzdbd/ops-angel:dev'
+  restart: always
 api:
   expose:
     - '8098'
