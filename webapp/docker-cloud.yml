@@ -27,6 +27,8 @@ ops-angel:
     - '8099'
   image: 'xzdbd/ops-angel:dev'
   restart: always
+  volumes:
+    - /home/lich/docker-runtime/ops-angel/conf/:/go/bin/conf/
 api:
   expose:
     - '8098'
