@@ -2,6 +2,10 @@ FROM golang:1.6.3
 
 MAINTAINER xzdbd <xzdbd@sina.com>
 
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8
+
 RUN apt-get update \
 	&& apt-get install -y ruby-full \
 	&& apt-get install -y nodejs && apt-get install -y npm
