@@ -10,7 +10,8 @@ RUN set -ex \
 		&& apt-get install -y git-all \
 		&& go get -u github.com/xzdbd/blog \
 		&& cd /go/src/github.com/xzdbd/blog/views/octopress \
-		&& rake generate
+		&& cp -r /go/src/github.com/xzdbd/blog /blog \
+		&& gem install bundler && bundle install && rake generate
 
 RUN cp -rf /go/src/github.com/xzdbd/blog/conf /go/bin/ \
 	&& cp -rf /go/src/github.com/xzdbd/blog/static /go/bin/ \
