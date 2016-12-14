@@ -8,10 +8,9 @@ RUN apt-get update \
 
 RUN set -ex \
 		&& apt-get install -y git-all \
-		&& go get -u github.com/astaxie/beego \
 		&& go get -u github.com/xzdbd/blog \
 		&& cd /go/src/github.com/xzdbd/blog/views/octopress \
-		&& gem install bundler && bundle install && rake generate
+		&& rake generate
 
 RUN cp -rf /go/src/github.com/xzdbd/blog/conf /go/bin/ \
 	&& cp -rf /go/src/github.com/xzdbd/blog/static /go/bin/ \
