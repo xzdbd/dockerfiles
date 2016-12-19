@@ -1,13 +1,15 @@
 influxdb:
-    image: influxdb:latest
+    image: tutum/influxdb:latest
     name: influxdb
     ports:
         - "8083:8083"
         - "8086:8086"
     expose: 
-        - "8096"
+        - "8086"
     volumes:
         - /home/lich/docker-runtime/influxdb/data:/var/lib/influxdb
+    environment:
+        - PRE_CREATE_DB=cadvisor
 cadvisor:
     image: google/cadvisor
     name: cadvisor
