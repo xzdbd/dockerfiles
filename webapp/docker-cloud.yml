@@ -17,6 +17,7 @@ webapp:
   restart: always
   volumes:
     - '/root/.acme.sh:/root/.acme.sh'
+    - '/home/lich/docker-runtime/webapp/nginx/nginx.conf:/usr/local/nginx/conf/nginx.conf'
 weixingis:
   expose:
     - '8092'
@@ -38,8 +39,15 @@ api:
     - /home/lich/docker-runtime/api/conf/:/gopath/src/github.com/xzdbd/api/conf/
 box:
   image: 'xzdbd/box:latest'
-  ports:
+  expose:
     - '8097'
   restart: always
   volumes:
     - /home/lich/docker-runtime/box/conf/:/go/bin/conf/
+static-host:
+  image: 'xzdbd/box:latest'
+  expose:
+    - '8180'
+  restart: always
+  volumes:
+    - /home/lich/docker-runtime/static-host/static/:/go/bin/static/    
