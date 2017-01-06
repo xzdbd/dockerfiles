@@ -9,7 +9,7 @@ RUN set -ex \
     	&& apk add --no-cache bash git openssh \
 		&& go get -u github.com/xzdbd/static-host \
 		&& cp -rf /go/src/github.com/xzdbd/static-host/conf /go/bin/ \
-		&& cp -rf /go/src/github.com/xzdbd/static-host/views /go/bin/ \
+		&& cp -rf /go/src/github.com/xzdbd/static-host/views /go/bin/
 
 EXPOSE 8180
 
