@@ -8,7 +8,7 @@ RUN set -ex \
 	apk update && apk upgrade && \
     apk add --no-cache bash git openssh curl &&\
 	curl -L git.io/cow | bash &&\
-    chmod u+x /etc/init.d/cow &&\
+    chmod u+x $COW_INSTALLDIR/cow &&\
     update-rc.d cow defaults
 
 CMD $COW_INSTALLDIR/cow
