@@ -4,7 +4,10 @@ ENV COW_INSTALLDIR /usr/local/bin
 
 VOLUME /root/.cow/
 
-RUN curl -L git.io/cow | bash &&\
+RUN set -ex \
+	apk update && apk upgrade && \
+    apk add --no-cache bash git openssh curl &&\
+	curl -L git.io/cow | bash &&\
     chmod u+x /etc/init.d/cow &&\
     update-rc.d cow defaults
 
