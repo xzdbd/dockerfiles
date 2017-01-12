@@ -45,9 +45,9 @@ box:
   volumes:
     - /home/lich/docker-runtime/box/conf/:/go/bin/conf/
 static-host:
-  image: 'xzdbd/box:latest'
+  image: 'xzdbd/static-host:latest'
   expose:
     - '8180'
   restart: always
   volumes:
-    - /home/lich/docker-runtime/static-host/static/:/go/bin/static/    
+    - /home/lich/docker-runtime/static-host/static/:/go/bin/static/  
