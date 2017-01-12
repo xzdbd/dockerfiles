@@ -1,0 +1,15 @@
+# 本地 HTTP 代理地址
+# 配置 HTTP 和 HTTPS 代理时请填入该地址
+# 若配置代理时有对所有协议使用该代理的选项，且你不清楚此选项的含义，请勾选
+# 或者在自动代理配置中填入 http://127.0.0.1:7777/pac
+listen = http://127.0.0.1:7777
+
+# SOCKS5 二级代理
+# proxy = socks5://127.0.0.1:1080
+# HTTP 二级代理
+# proxy = http://127.0.0.1:8080
+# proxy = http://user:password@127.0.0.1:8080
+# shadowsocks 二级代理
+proxy = ss://aes-128-cfb:password@ip:8388
+# cow 二级代理
+# proxy = cow://aes-128-cfb:password@1.2.3.4:8388
