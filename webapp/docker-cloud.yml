@@ -51,3 +51,10 @@ static-host:
   restart: always
   volumes:
     - /home/lich/docker-runtime/static-host/static/:/go/bin/static/  
+static-host:
+  image: 'xzdbd/squeak:latest'
+  expose:
+    - '8094'
+  restart: always
+  volumes:
+    - /home/lich/docker-runtime/squeak/static/:/go/bin/static/     
