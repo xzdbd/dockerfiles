@@ -5,6 +5,8 @@ MAINTAINER xzdbd <xzdbd@sina.com>
 VOLUME /go/bin/conf
 
 RUN set -ex \
+	&& echo "Asia/Shanghai" > /etc/timezone \
+	&& dpkg-reconfigure -f noninteractive tzdata \
 	&& apt-get update \
 	&& apt-get install -y git-all \
 	&& go get -u github.com/xzdbd/squeak
