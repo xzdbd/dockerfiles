@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ss-go:
+    image: xzdbd/shadowsocks-go:latest
+    ports:
+      - "8388:8388"
+    environment:
+      - PASSWORD=1234567890
+    deploy:
+      restart_policy:
+        condition: on-failure

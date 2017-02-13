@@ -1,0 +1,82 @@
+version: '3'
+services:
+  blog:
+    expose:
+      - '8096'
+    image: 'xzdbd/blog:latest'
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /home/lich/docker-runtime/blog/conf/:/go/bin/conf/
+  webapp:
+    image: 'xzdbd/webapp:latest'
+    links:
+      - blog
+      - weixingis
+      - box
+      - ops-angel
+      - api
+      - static-host
+      - squeak
+    ports:
+      - '80:80'
+      - '443:443'
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - '/home/lich/.acme.sh:/root/.acme.sh'
+      - '/home/lich/docker-runtime/webapp/nginx/nginx.conf:/usr/local/nginx/conf/nginx.conf'
+  weixingis:
+    expose:
+      - '8092'
+    image: 'xzdbd/weixingis:latest'
+    deploy:
+      restart_policy:
+        condition: on-failure
+  ops-angel:
+    expose:
+      - '8099'
+    image: 'xzdbd/ops-angel:dev'
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /home/lich/docker-runtime/ops-angel/conf/:/go/bin/conf/
+  api:
+    expose:
+      - '8098'
+    image: 'xzdbd/api:latest'
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /home/lich/docker-runtime/api/conf/:/gopath/src/github.com/xzdbd/api/conf/
+  box:
+    image: 'xzdbd/box:latest'
+    expose:
+      - '8097'
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /home/lich/docker-runtime/box/conf/:/go/bin/conf/
+  static-host:
+    image: 'xzdbd/static-host:latest'
+    expose:
+      - '8180'
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /home/lich/docker-runtime/static-host/static/:/go/bin/static/  
+  squeak:
+    image: 'xzdbd/squeak:latest'
+    expose:
+      - '8094'
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /home/lich/docker-runtime/squeak/conf/:/go/bin/conf/

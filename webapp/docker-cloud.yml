@@ -11,6 +11,10 @@ webapp:
     - blog
     - weixingis
     - box
+    - ops-angel
+    - api
+    - static-host
+    - squeak
   ports:
     - '80:80'
     - '443:443'
