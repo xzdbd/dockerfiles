@@ -7,6 +7,8 @@ RUN apt-get update \
 	&& apt-get install -y nodejs && apt-get install -y npm
 
 RUN set -ex \
+		&& echo "Asia/Shanghai" > /etc/timezone \
+		&& dpkg-reconfigure -f noninteractive tzdata \
 		&& apt-get install -y git-all \
 		&& go get -u github.com/xzdbd/blog \
 		&& cd /go/src/github.com/xzdbd/blog/views/octopress \
