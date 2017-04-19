@@ -1,0 +1,9 @@
+webapp:
+    image: 'xzdbd/webapp:latest'
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - '/home/shzxw24/.acme.sh:/home/shzxw24/.acme.sh'
+      - '/home/shzxw24/docker-runtime/ags-reverse-proxy-server/conf/nginx.conf:/usr/local/nginx/conf/nginx.conf'
+    restart: always
