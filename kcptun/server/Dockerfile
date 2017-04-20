@@ -21,4 +21,4 @@ RUN go get -ldflags "-X main.VERSION=$(date -u +%Y%m%d) -s -w" github.com/xtaci/
 
 EXPOSE $LISTEN_PORT/udp
 
-CMD /go/bin/server -l $LISTEN_PORT -t $TARGET_ADDR --key $KEY --crypt $CRYPT --mode $MODE --mtu $MTU --sndwnd $SNDWND --rcvwnd $RCVWND --datashard $DATASHARD --partiyshard $PARITYSHARD
+CMD /go/bin/server -l $LISTEN_PORT -t $TARGET_ADDR --key $KEY --crypt $CRYPT --mode $MODE --mtu $MTU --sndwnd $SNDWND --rcvwnd $RCVWND --datashard $DATASHARD --parityshard $PARITYSHARD
