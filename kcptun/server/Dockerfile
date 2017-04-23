@@ -2,6 +2,8 @@ FROM golang:alpine
 
 MAINTAINER xzdbd <xzdbd@sina.com>
 
+ENV LISTEN_PORT 4000
+
 RUN apk update && \
     apk upgrade && \
     apk add git
