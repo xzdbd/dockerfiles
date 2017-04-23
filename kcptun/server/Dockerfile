@@ -12,6 +12,6 @@ RUN go get -ldflags "-X main.VERSION=$(date -u +%Y%m%d) -s -w" github.com/xtaci/
 
 EXPOSE $LISTEN_PORT/udp
 
-VOLUMN /kcptun.json
+VOLUME /kcptun.json
 
 CMD /go/bin/server -c /kcptun.json
