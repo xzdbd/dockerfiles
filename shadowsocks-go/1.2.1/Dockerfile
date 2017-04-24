@@ -20,4 +20,4 @@ RUN tar xvzf /opt/shadowsocks-server.tar.gz && chmod +x /opt/shadowsocks-server
 
 EXPOSE $SERVER_PORT
 
-CMD /opt/shadowsocks-server -p $SERVER_PORT -k $PASSWORD -m $METHOD -t $TIMEOUT
+CMD /opt/shadowsocks-server -p $SERVER_PORT -k $PASSWORD -m $METHOD -t $TIMEOUT -u
