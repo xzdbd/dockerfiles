@@ -1,0 +1,19 @@
+kcptun-server:
+  environment:
+    - 'LISTEN_PORT=:4000'
+  image: 'xzdbd/kcptun:latest'
+  links:
+    - ss-go
+  ports:
+    - '4000:4000/udp'
+  restart: always
+  volumes:
+    - '/home/lich/docker-runtime/kcptun/kcptun.json:/kcptun.json'
+ss-go:
+  environment:
+    - PASSWORD=passwd
+    - SERVER_PORT=8389
+  expose:
+    - '8389'
+  image: 'xzdbd/shadowsocks-go:latest'
+  restart: always
