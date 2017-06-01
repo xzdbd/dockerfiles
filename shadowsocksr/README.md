@@ -10,7 +10,9 @@ Command line options can override settings from configuration files.
 
 -p server_port 
 -k password
--m aes-128-cfb
+-m method
 -t timeout
+-O protocol
+-o obfs
 
-Use ENV SERVER_PORT, PASSWORD, METHOD, TIMEOUT to determine the parameters.
+Use ENV SERVER_PORT, PASSWORD, METHOD, TIMEOUT, PROTOCOL, OBFS to determine the parameters.
