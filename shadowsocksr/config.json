@@ -10,7 +10,7 @@
     "protocol": "origin",
     "protocol_param": "",
     "obfs": "http_simple",
-    "obfs_param": "wap.10086.cn",
+    "obfs_param": "",
     "speed_limit_per_con": 0,
     "speed_limit_per_user": 0,
 

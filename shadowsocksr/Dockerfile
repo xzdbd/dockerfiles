@@ -18,8 +18,6 @@ WORKDIR /shadowsocksr
 
 RUN bash initcfg.sh
 
-VOLUME /shadowsocksr/config.json
-
 EXPOSE $SERVER_PORT
 
 CMD python /shadowsocksr/shadowsocks/server.py
