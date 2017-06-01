@@ -6,4 +6,4 @@
 
 ## Setup
 
-Use VOLUME /shadowsocksr/config.json to define ssr configurations
+Use VOLUME /shadowsocksr/user-config.json to define ssr configurations
