@@ -1,0 +1,11 @@
+version: '2'
+services:
+  geodb:
+    image: xzdbd/geodb:10.4
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=123
+    volumes:
+      - /home/vagrant/docker-build/geodb/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
