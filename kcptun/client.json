@@ -1,0 +1,22 @@
+{
+	"localaddr": "127.0.0.1:8389",
+	"remoteaddr": "IP:4000",
+	"key": "k",
+	"crypt": "salsa20",
+	"mode": "manual",
+	"conn": 1,
+	"mtu": 1400,
+	"sndwnd": 128,
+	"rcvwnd": 1024,
+	"datashard": 0,
+	"parityshard": 0,
+	"dscp": 46,
+	"nocomp": true,
+	"acknodelay": false,
+	"nodelay": 0,
+	"interval": 20,
+	"resend": 2,
+	"nc": 1,
+	"sockbuf": 4194304,
+	"keepalive": 10
+}

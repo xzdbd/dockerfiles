@@ -1,0 +1,100 @@
+version: "3.5"
+services:
+  api:
+    expose:
+      - '8098'
+    networks:
+      - frontend
+    image: 'xzdbd/api:latest'
+    volumes:
+      - '/home/ubuntu/docker-runtime/api/conf:/gopath/src/github.com/xzdbd/api/conf'
+    deploy:
+      restart_policy:
+        condition: any
+  blog:
+    expose:
+      - '8096'
+    networks:
+      - frontend
+      - backend
+    image: 'xzdbd/blog-ng:latest'
+    depends_on:
+      - blog-db
+    volumes:
+      - '/home/ubuntu/docker-runtime/blog/conf:/go/bin/conf'
+    deploy:
+      restart_policy:
+        condition: any
+  blog-db:
+    image: postgres:9.6
+    networks:
+      - backend
+    environment:
+      POSTGRES_USER: blog
+      POSTGRES_PASSWORD: 
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - '/home/ubuntu/docker-runtime/blog-db/data:/var/lib/postgresql/data'
+      - '/home/ubuntu/docker-runtime/blog-db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d'
+    deploy:
+      restart_policy:
+        condition: any
+  ops-angel:
+    expose:
+      - '8099'
+    networks:
+      - frontend
+    image: 'xzdbd/ops-angel:dev'
+    volumes:
+      - '/home/ubuntu/docker-runtime/ops-angel/conf:/go/bin/conf'
+    deploy:
+      restart_policy:
+        condition: any
+  squeak:
+    expose:
+      - '8094'
+    networks:
+      - frontend
+    image: 'xzdbd/squeak:latest'
+    volumes:
+      - '/home/ubuntu/docker-runtime/squeak/conf:/go/bin/conf'
+    deploy:
+      restart_policy:
+        condition: any
+  static-host:
+    expose:
+      - '8180'
+    networks:
+      - frontend
+    image: 'xzdbd/static-host:latest'
+    volumes:
+      - '/home/ubuntu/docker-runtime/static-host/static:/go/bin/static'
+    deploy:
+      restart_policy:
+        condition: any
+  webapp:
+    image: 'xzdbd/webapp:latest'
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      - frontend
+    privileged: true
+    volumes:
+      - '/home/ubuntu/.acme.sh:/home/ubuntu/.acme.sh'
+      - '/home/ubuntu/docker-runtime/webapp/nginx/nginx.conf:/usr/local/nginx/conf/nginx.conf'
+    deploy:
+      restart_policy:
+        condition: any
+  weixingis:
+    expose:
+      - '8092'
+    networks:
+      - frontend
+    image: 'xzdbd/weixingis:latest'
+    deploy:
+      restart_policy:
+        condition: any    
+networks:
+  frontend:
+  backend:
