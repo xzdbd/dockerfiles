@@ -5,7 +5,7 @@
 FROM alpine
 LABEL MAINTAINER="xzdbd <xzdbd@sina.com>"
 
-ENV BROOK_URL https://github.com/txthinking/brook/releases/download/v20210214/brook_linux_arm64
+ENV BROOK_URL https://github.com/txthinking/brook/releases/download/v20210214/brook_linux_amd64
 ENV ARGS "server -l :6060 -p password"
 
 ADD $BROOK_URL /opt/brook
