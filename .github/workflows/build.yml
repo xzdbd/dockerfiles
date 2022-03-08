@@ -9,6 +9,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tags: ['latest', $(date "+%Y%m%d%H%M")]
 
     steps:
     - uses: actions/checkout@v2
@@ -25,13 +28,4 @@ jobs:
       with:
         context: ./brook
         push: true
-        tags: ccr.ccs.tencentyun.com/xzdbd/brook:latest
-        
-    - name: Build and push Docker images - brook with timetag
-      uses: docker/build-push-action@v2.6.1
-      with:
-        context: ./brook
-        push: true
-        tags: ccr.ccs.tencentyun.com/xzdbd/brook:$(date "+%Y%m%d%H%M")
-          
-    
+        tags: ccr.ccs.tencentyun.com/xzdbd/brook:${{ matrix.tags }}
