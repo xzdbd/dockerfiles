@@ -9,10 +9,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        tags: ['latest', ${{ env.GITHUB_SHA }}]
-
+    
     steps:
     - uses: actions/checkout@v2
     
@@ -28,4 +25,4 @@ jobs:
       with:
         context: ./brook
         push: true
-        tags: ccr.ccs.tencentyun.com/xzdbd/brook:${{ matrix.tags }}
+        tags: ccr.ccs.tencentyun.com/xzdbd/brook:latest
