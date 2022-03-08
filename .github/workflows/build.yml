@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        tags: ['latest', '${{ env.GITHUB_SHA }}']
+        tags: ['latest', ${{ env.GITHUB_SHA }}]
 
     steps:
     - uses: actions/checkout@v2
