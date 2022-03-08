@@ -1,0 +1,29 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Login to Tencent DockerHub
+      uses: docker/login-action@v1
+      with:
+        registry: ccr.ccs.tencentyun.com
+        username: ${{ secrets.TCR_USERNAME }}
+        password: ${{ secrets.TCR_TOKEN }}
+        
+    - name: Build and push Docker images - brook
+      uses: docker/build-push-action@v2.6.1
+      with:
+        context: ./brook
+        push: true
+        tags: ccr.ccs.tencentyun.com/xzdbd/brook:latest
+    
